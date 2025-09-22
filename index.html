@@ -16,27 +16,50 @@
       class="sticky top-0 z-1 bg-white flex justify-between items-center shadow-xl w-full h-20 px-10"
     >
       <h1 class="text-3xl font-bold text-[#6061ef]">HashStore</h1>
-      <nav>
+      <nav class="hidden md:flex">
         <ul class="flex font-medium gap-10 text-1xl text-gray-800">
-          <li>Home</li>
-          <li>Products</li>
-          <li>Categories</li>
-          <li>Deals</li>
-          <li>About</li>
+          <li><a href="#home" class="hover:text-[#6061ef]">Home</a></li>
+          <li><a href="#products" class="hover:text-[#6061ef]">Products</a></li>
+          <li>
+            <a href="#category" class="hover:text-[#6061ef]">Categories</a>
+          </li>
+          <li><a href="#deals" class="hover:text-[#6061ef]">Deals</a></li>
+          <li><a href="#about" class="hover:text-[#6061ef]">About</a></li>
         </ul>
       </nav>
-      <div class="flex gap-5 text-gray-800">
+      <div class="flex gap-2 text-gray-800 hidden md:flex">
         <i class="fas fa-search"></i>
         <i class="fas fa-shopping-cart"></i>
         <i class="fas fa-user"></i>
       </div>
+      <button class="border rounded px-2 md:hidden">
+        <i class="fas fa-bars"></i>
+      </button>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div
+      id="mobile-menu"
+      class="hidden flex-col bg-white shadow-md px-6 py-4 md:hidden"
+    >
+      <a href="#home" class="py-2 border-b hover:text-[#6061ef]">Home</a>
+      <a href="#products" class="py-2 border-b hover:text-[#6061ef]"
+        >Products</a
+      >
+      <a href="#category" class="py-2 border-b hover:text-[#6061ef]"
+        >Categories</a
+      >
+      <a href="#deals" class="py-2 border-b hover:text-[#6061ef]">Deals</a>
+      <a href="#about" class="py-2 border-b hover:text-[#6061ef]">About</a>
+      <a href="#contact" class="py-2 hover:text-[#6061ef]">Contact</a>
+    </div>
 
     <!-- Hero section -->
     <section
+      id="home"
       class="flex justify-between px-10 items-center bg-[#6061ef] text-white"
     >
-      <div class="flex flex-col">
+      <div class="flex flex-col gap-3">
         <h1 class="text-5xl font-bold">
           Summer Collection <br />
           2025
@@ -60,7 +83,7 @@
     </section>
 
     <!-- Category Section -->
-    <section>
+    <section id="category">
       <h1 class="text-gray-800 text-center text-3xl font-bold my-15">
         Shop by Category
       </h1>
@@ -71,7 +94,7 @@
           <i
             class="text-black bg-[#6061ef] fas fa-tshirt rounded-[50%] p-3 text-3xl"
           ></i>
-          <h3 class="text-2xl font-bold">Clothing</h3>
+          <h3 class="text-[1.2rem] font-bold">Clothing</h3>
           <p class="text-[#6061ef]">
             Explore
             <i class="fas fa-arrow-right"></i>
@@ -83,7 +106,7 @@
           <i
             class="text-black bg-[#6061ef] fas fa-shoe-prints rounded-[50%] p-3 text-3xl"
           ></i>
-          <h3 class="text-2xl font-bold">Clothing</h3>
+          <h3 class="text-[1.2rem] font-bold">Footwear</h3>
           <p class="text-[#6061ef]">
             Explore
             <i class="fas fa-arrow-right"></i>
@@ -95,7 +118,7 @@
           <i
             class="text-black bg-[#6061ef] fas fa-gem rounded-[50%] p-3 text-3xl"
           ></i>
-          <h3 class="text-2xl font-bold">Clothing</h3>
+          <h3 class="text-[1.2rem] font-bold">Accessories</h3>
           <p class="text-[#6061ef]">
             Explore
             <i class="fas fa-arrow-right"></i>
@@ -107,7 +130,7 @@
           <i
             class="text-black bg-[#6061ef] fas fa-vest rounded-[50%] p-3 text-3xl"
           ></i>
-          <h3 class="text-2xl font-bold">Clothing</h3>
+          <h3 class="text-[1.2rem] font-bold">Activewear</h3>
           <p class="text-[#6061ef]">
             Explore
             <i class="fas fa-arrow-right"></i>
@@ -115,14 +138,18 @@
         </div>
       </section>
     </section>
-    <section class="bg-gray-100 my-15 flex flex-col h-160">
-      <h1 class="text-center text-3xl font-bold text-gray-800 my-15">
+    <section id="products" class="bg-gray-100 my-15 flex flex-col h-160">
+      <h1 id="deals" class="text-center text-3xl font-bold text-gray-800 my-15">
         Featured Products
       </h1>
       <section class="flex justify-center gap-10 flex-wrap">
         <div
-          class="h-85 w-60 rounded bg-white flex flex-col gap-2 hover:shadow-xl shadow-md transform duration-300 hover:-translate-y-2"
+          class="relative h-85 w-60 rounded bg-white flex flex-col gap-2 hover:shadow-xl shadow-md transform duration-300 hover:-translate-y-2"
         >
+          <span
+            class="absolute right-3 top-3 bg-red-600 rounded text-white w-15 text-center"
+            >Deal</span
+          >
           <img
             src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1099&q=80"
             alt="Product"
@@ -174,8 +201,13 @@
           </div>
         </div>
         <div
-          class="h-85 w-60 rounded bg-white flex flex-col gap-2 shadow-md hover:shadow-xl transition transform duration-300 hover:-translate-y-2"
+          class="relative h-85 w-60 rounded bg-white flex flex-col gap-2 shadow-md hover:shadow-xl transition transform duration-300 hover:-translate-y-2"
         >
+          <span
+            id="deals"
+            class="absolute right-2 top-2 w-15 text-center bg-red-600 text-white rounded"
+            >New</span
+          >
           <img
             src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
             alt="Product"
@@ -237,7 +269,7 @@
         </div>
       </section>
     </section>
-    <section class="flex justify-center items-center h-50">
+    <section id="contact" class="flex justify-center items-center h-50">
       <div
         class="bg-[#6061ef] text-white w-[60vw] h-[30vh] border rounded-xl flex justify-center gap-5 items-center flex flex-col mb-15"
       >
@@ -257,7 +289,7 @@
         </div>
       </div>
     </section>
-    <footer class="bg-gray-800 text-gray-100 py-8">
+    <footer id="about" class="bg-gray-800 text-gray-100 py-8">
       <div class="max-w-6xl mx-auto px-6">
         <table class="w-full text-left border-separate border-spacing-y-6">
           <thead>
@@ -277,14 +309,23 @@
                   prices with excellent customer service.
                 </p>
                 <div class="flex gap-4 mt-3 text-lg">
-                  <a href="#" class="hover:text-blue-500"
-                    ><i class="fa-brands fa-facebook"></i
+                  <a
+                    href="https://github.com/hashimmalik59"
+                    target="_blank"
+                    class="hover:text-blue-500"
+                    ><i class="fa-brands fa-github"></i
                   ></a>
-                  <a href="#" class="hover:text-pink-500"
-                    ><i class="fa-brands fa-instagram"></i
-                  ></a>
-                  <a href="#" class="hover:text-blue-400"
+                  <a
+                    href="https://linkedin.com/in/hashimmalik95"
+                    target="_blank"
+                    class="hover:text-pink-500"
                     ><i class="fa-brands fa-linkedin-in"></i
+                  ></a>
+                  <a
+                    href="https://wa.me/923189169189"
+                    target="_blank"
+                    class="hover:text-blue-400"
+                    ><i class="fa-brands fa-whatsapp"></i
                   ></a>
                 </div>
               </td>
@@ -303,9 +344,13 @@
               <!-- Quick Links -->
               <td>
                 <ul class="space-y-2">
-                  <li><a href="#" class="hover:underline">Home</a></li>
-                  <li><a href="#" class="hover:underline">About</a></li>
-                  <li><a href="#" class="hover:underline">Contact</a></li>
+                  <li>
+                    <a href="#home" class="hover:underline">Home</a>
+                  </li>
+                  <li><a href="#about" class="hover:underline">About</a></li>
+                  <li>
+                    <a href="#contact" class="hover:underline">Contact</a>
+                  </li>
                 </ul>
               </td>
 
@@ -330,4 +375,12 @@
       </div>
     </footer>
   </body>
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
 </html>
